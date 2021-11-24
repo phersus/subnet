@@ -24,8 +24,9 @@ func main() {
 	ip := "172.17.34.79"          // Our initial IPv4 address to analyze
 	sOct := make([]string, 4)     // We prepare the placeholder for the individual octets
 	sOct = strings.Split(ip, ".") // We separate the octets
+	sByte := toInt(sOct)          // We get an int version of the IPv4
 
-	sByte := toInt(sOct) // We get an int version of the IPv4
+	/* We start computing */
 
 	// from /32 to /25
 	n4 := checkOdd(sByte[3]) // We check the last octet for oddity
@@ -55,26 +56,37 @@ func main() {
 	r1 := append(e, _r1...)
 	fmt.Println(r1)
 
-	n := crtNetBorders(sByte)
+	/* Using the function that consolidates these executions */
+	n, nStr := crtNetBorders(sByte)
 	fmt.Println(n)
-
+	fmt.Println(nStr)
 }
 
 // crtNetBorders creates all the network subnets from /1 to /32
-func crtNetBorders(bite []int) [][]int {
+func crtNetBorders(bite []int) ([][]int, [][]string) {
 	n := make([]int, 4)
 	_r := make([][]int, 4)
 	r := make([][]int, 4)
+
+	_rStr := make([][]string, 4)
+	rStr := make([][]string, 4)
+	biteStr := make([]string, 4)
+	biteStr = toStr(bite)
+
 	for i := range r {
 		r[i] = make([]int, 8)
+		rStr[i] = make([]string, 8)
+
 		for j := range n {
 			n[j] = checkOdd(bite[j])
 			_r[j] = netBorders(n[j])
+			_rStr[j] = toStr(_r[j])
 			r[i] = append([]int{bite[i]}, _r[i]...)
+			rStr[i] = append([]string{biteStr[i]}, _rStr[i]...)
 			// fmt.Println(r[i])
 		}
 	}
-	return r
+	return r, rStr
 }
 
 // checkOdd will receive an integer and returns it if it is even, otherwise it returns the
