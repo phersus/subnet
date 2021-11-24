@@ -60,6 +60,90 @@ func main() {
 	n, nStr := crtNetBorders(sByte)
 	fmt.Println(n)
 	fmt.Println(nStr)
+
+	for i := range nStr {
+
+		for j := range nStr[i] {
+			switch i {
+			case 0:
+				switch j {
+				case 0:
+					fmt.Printf(nStr[i][j] + ".0.0.0/8\n")
+				case 1:
+					fmt.Printf(nStr[i][j] + ".0.0.0/7\n")
+				case 2:
+					fmt.Printf(nStr[i][j] + ".0.0.0/6\n")
+				case 3:
+					fmt.Printf(nStr[i][j] + ".0.0.0/5\n")
+				case 4:
+					fmt.Printf(nStr[i][j] + ".0.0.0/4\n")
+				case 5:
+					fmt.Printf(nStr[i][j] + ".0.0.0/3\n")
+				case 6:
+					fmt.Printf(nStr[i][j] + ".0.0.0/2\n")
+				case 7:
+					fmt.Printf(nStr[i][j] + ".0.0.0/1\n")
+				}
+			case 1:
+				switch j {
+				case 0:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/16\n")
+				case 1:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/15\n")
+				case 2:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/14\n")
+				case 3:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/13\n")
+				case 4:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/12\n")
+				case 5:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/11\n")
+				case 6:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/10\n")
+				case 7:
+					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/9\n")
+				}
+			case 2:
+				switch j {
+				case 0:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/24\n")
+				case 1:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/23\n")
+				case 2:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/22\n")
+				case 3:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/21\n")
+				case 4:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/20\n")
+				case 5:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/19\n")
+				case 6:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/18\n")
+				case 7:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/17\n")
+				}
+			case 3:
+				switch j {
+				case 0:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/32\n")
+				case 1:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/31\n")
+				case 2:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/30\n")
+				case 3:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/29\n")
+				case 4:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/28\n")
+				case 5:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/27\n")
+				case 6:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/26\n")
+				case 7:
+					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/25\n")
+				}
+			}
+		}
+	}
 }
 
 // crtNetBorders creates all the network subnets from /1 to /32
