@@ -7,15 +7,40 @@ import (
 )
 
 var (
-	v    = []int{2, 4, 8, 16, 32, 64, 128}
-	list = map[string]int{
-		`/31`: 2,
-		`/30`: 4,
-		`/29`: 8,
-		`/28`: 16,
-		`/27`: 32,
-		`/26`: 64,
-		`/25`: 128,
+	v       = []int{2, 4, 8, 16, 32, 64, 128}
+	netList = []string{
+		"%s.0.0.0./1",
+		"%s.0.0.0./2",
+		"%s.0.0.0./3",
+		"%s.0.0.0./4",
+		"%s.0.0.0./5",
+		"%s.0.0.0./6",
+		"%s.0.0.0./7",
+		"%s.0.0.0./8",
+		"%s.%s.0.0./9",
+		"%s.%s.0.0./10",
+		"%s.%s.0.0./11",
+		"%s.%s.0.0./12",
+		"%s.%s.0.0./13",
+		"%s.%s.0.0./14",
+		"%s.%s.0.0./15",
+		"%s.%s.0.0./16",
+		"%s.%s.%s.0./17",
+		"%s.%s.%s.0./18",
+		"%s.%s.%s.0./19",
+		"%s.%s.%s.0./20",
+		"%s.%s.%s.0./21",
+		"%s.%s.%s.0./22",
+		"%s.%s.%s.0./23",
+		"%s.%s.%s.0./24",
+		"%s.%s.%s.%s/25",
+		"%s.%s.%s.%s/26",
+		"%s.%s.%s.%s/27",
+		"%s.%s.%s.%s/28",
+		"%s.%s.%s.%s/29",
+		"%s.%s.%s.%s/30",
+		"%s.%s.%s.%s/31",
+		"%s.%s.%s.%s/32",
 	}
 )
 
@@ -56,94 +81,97 @@ func main() {
 	r1 := append(e, _r1...)
 	fmt.Println(r1)
 
-	/* Using the function that consolidates these executions */
+	/* Using the function that consolidates these computations */
 	n, nStr := crtNetBorders(sByte)
 	fmt.Println(n)
 	fmt.Println(nStr)
 
-	for i := range nStr {
+	fmt.Println(fmt.Sprintf(netList[0], nStr[0][7]))
 
-		for j := range nStr[i] {
-			switch i {
-			case 0:
-				switch j {
-				case 0:
-					fmt.Printf(nStr[i][j] + ".0.0.0/8\n")
-				case 1:
-					fmt.Printf(nStr[i][j] + ".0.0.0/7\n")
-				case 2:
-					fmt.Printf(nStr[i][j] + ".0.0.0/6\n")
-				case 3:
-					fmt.Printf(nStr[i][j] + ".0.0.0/5\n")
-				case 4:
-					fmt.Printf(nStr[i][j] + ".0.0.0/4\n")
-				case 5:
-					fmt.Printf(nStr[i][j] + ".0.0.0/3\n")
-				case 6:
-					fmt.Printf(nStr[i][j] + ".0.0.0/2\n")
-				case 7:
-					fmt.Printf(nStr[i][j] + ".0.0.0/1\n")
-				}
-			case 1:
-				switch j {
-				case 0:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/16\n")
-				case 1:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/15\n")
-				case 2:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/14\n")
-				case 3:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/13\n")
-				case 4:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/12\n")
-				case 5:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/11\n")
-				case 6:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/10\n")
-				case 7:
-					fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/9\n")
-				}
-			case 2:
-				switch j {
-				case 0:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/24\n")
-				case 1:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/23\n")
-				case 2:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/22\n")
-				case 3:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/21\n")
-				case 4:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/20\n")
-				case 5:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/19\n")
-				case 6:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/18\n")
-				case 7:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/17\n")
-				}
-			case 3:
-				switch j {
-				case 0:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/32\n")
-				case 1:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/31\n")
-				case 2:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/30\n")
-				case 3:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/29\n")
-				case 4:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/28\n")
-				case 5:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/27\n")
-				case 6:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/26\n")
-				case 7:
-					fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/25\n")
-				}
-			}
-		}
-	}
+	// for i := range nStr {
+	//
+	// 	for j := range nStr[i] {
+	// 		switch i {
+	// 		case 0:
+	// 			switch j {
+	// 			case 0:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/8\n")
+	// 			case 1:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/7\n")
+	// 			case 2:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/6\n")
+	// 			case 3:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/5\n")
+	// 			case 4:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/4\n")
+	// 			case 5:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/3\n")
+	// 			case 6:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/2\n")
+	// 			case 7:
+	// 				fmt.Printf(nStr[i][j] + ".0.0.0/1\n")
+	// 			}
+	// 		case 1:
+	// 			switch j {
+	// 			case 0:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/16\n")
+	// 			case 1:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/15\n")
+	// 			case 2:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/14\n")
+	// 			case 3:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/13\n")
+	// 			case 4:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/12\n")
+	// 			case 5:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/11\n")
+	// 			case 6:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/10\n")
+	// 			case 7:
+	// 				fmt.Printf(sOct[0] + "." + nStr[i][j] + ".0.0/9\n")
+	// 			}
+	// 		case 2:
+	// 			switch j {
+	// 			case 0:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/24\n")
+	// 			case 1:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/23\n")
+	// 			case 2:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/22\n")
+	// 			case 3:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/21\n")
+	// 			case 4:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/20\n")
+	// 			case 5:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/19\n")
+	// 			case 6:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/18\n")
+	// 			case 7:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + nStr[i][j] + ".0/17\n")
+	// 			}
+	// 		case 3:
+	// 			switch j {
+	// 			case 0:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/32\n")
+	// 			case 1:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/31\n")
+	// 			case 2:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/30\n")
+	// 			case 3:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/29\n")
+	// 			case 4:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/28\n")
+	// 			case 5:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/27\n")
+	// 			case 6:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/26\n")
+	// 			case 7:
+	// 				fmt.Printf(sOct[0] + "." + sOct[1] + "." + sOct[2] + "." + nStr[i][j] + "/25\n")
+	// 			}
+	// 		}
+	// 	}
+	// }
+
 }
 
 // crtNetBorders creates all the network subnets from /1 to /32
@@ -158,15 +186,19 @@ func crtNetBorders(bite []int) ([][]int, [][]string) {
 	biteStr = toStr(bite)
 
 	for i := range r {
+		// for i := len(r) - 1; i >= 0; i-- {
 		r[i] = make([]int, 8)
 		rStr[i] = make([]string, 8)
 
 		for j := range n {
+			// for j := len(n) - 1; j >= 0; j-- {
 			n[j] = checkOdd(bite[j])
 			_r[j] = netBorders(n[j])
 			_rStr[j] = toStr(_r[j])
-			r[i] = append([]int{bite[i]}, _r[i]...)
-			rStr[i] = append([]string{biteStr[i]}, _rStr[i]...)
+			r[i] = append([]int{bite[3-i]}, _r[3-i]...)
+			// r[i] = append([]int{bite[i]}, _r[i]...)
+			rStr[i] = append([]string{biteStr[3-i]}, _rStr[3-i]...)
+			// rStr[i] = append([]string{biteStr[i]}, _rStr[i]...)
 			// fmt.Println(r[i])
 		}
 	}
