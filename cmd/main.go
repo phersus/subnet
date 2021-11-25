@@ -7,7 +7,6 @@ import (
 
 func main() {
 
-	ip := "172.17.34.80"
+	ip := "57.16.10.24"
 	fmt.Println(subnetservice.CrtSubNets(ip))
-
 }

@@ -2,6 +2,8 @@ package subnetservice
 
 import (
 	"fmt"
+	"log"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -48,6 +50,13 @@ var (
 // the result is an organized []string from the most specific network (/32)
 // at position 0 of the slice
 func CrtSubNets(ip string) []string {
+
+	re := regexp.MustCompile(`^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$`)
+	if !re.MatchString(ip) || len(ip) == 0 {
+		log.Println("ip address not valid!")
+		return []string{""}
+	}
+
 	sOct := make([]string, 4)     // We prepare the placeholder for the individual octets
 	sOct = strings.Split(ip, ".") // We separate the octets
 	sByte := toInt(sOct)          // We get an int version of the IPv4
