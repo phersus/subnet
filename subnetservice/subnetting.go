@@ -1,4 +1,4 @@
-package main
+package subnetservice
 
 import (
 	"fmt"
@@ -43,13 +43,6 @@ var (
 		"%s.0.0.0/1",
 	}
 )
-
-func main() {
-
-	ip := "172.17.34.80"
-	fmt.Println(SubNets(ip))
-
-}
 
 func SubNets(ip string) []string {
 	sOct := make([]string, 4)     // We prepare the placeholder for the individual octets
