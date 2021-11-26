@@ -2,11 +2,12 @@ package main
 
 import (
 	"fmt"
-	"subnet/subnetservice"
+
+	"github.com/phersus/subnet"
 )
 
 func main() {
 
 	ip := "57.16.10.24"
-	fmt.Println(subnetservice.CrtSubNets(ip))
+	fmt.Println(subnet.CrtSubNets(ip))
 }

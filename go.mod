@@ -1,4 +1,4 @@
-module subnet
+module github.com/phersus/subnet
 
 go 1.17
 

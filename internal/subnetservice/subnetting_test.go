@@ -51,25 +51,19 @@ func TestCrtSubNets_CrtSubNets(t *testing.T) {
 			},
 		},
 		{
-			name: "ip address out of range, should return an empty slice []",
-			in:   "172.302.1.9",
-			expect: []string{
-				"",
-			},
+			name:   "ip address out of range, should return an empty slice []",
+			in:     "172.302.1.9",
+			expect: nil,
 		},
 		{
-			name: "should return an empty slice []",
-			in:   "",
-			expect: []string{
-				"",
-			},
+			name:   "should return an empty slice []",
+			in:     "",
+			expect: nil,
 		},
 		{
-			name: "bad formatted ip address, should return an empty slice []",
-			in:   "172.15.20",
-			expect: []string{
-				"",
-			},
+			name:   "bad formatted ip address, should return an empty slice []",
+			in:     "172.15.20",
+			expect: nil,
 		},
 	}
 
